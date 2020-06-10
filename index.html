@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <main class="main-container">
+
+        <header class="header">
+            <img class="logo-img" src="img/logo.png" alt="">
+
+            <ul class="main-nav">
+                <li><button>Gallery</button></li>
+                <li><button>Memes</button></li>
+                <li><button>About</button></li>
+            </ul>
+        </header>
+
+
+        <nav class="second-nav">
+            <input class="search-by-keyword" type="text" placeholder="Enter search keyword 🔍">
+        </nav>
+        <div class="container">
+
+            <section class="cards-container">
+
+
+            </section>
+        </div>
+
+
+
+        <div class="me"><img src="img/me2.jpg" alt="">
+            <p>this is me i like it</p>
+
+
+    </main>
+
+    </div>
+
+    <footer class="main-footer"><img class="logo-img" src="img/logo.png" alt="">
+        <p> All rights</p>
+    </footer>
+
+    <div class="modal hidden container">
+
+
+        <main class="main-container">
+
+            <header class="header">
+                <img class="logo-img" src="img/logo.png" alt="">
+
+                <ul class="main-nav">
+                    <li><button>Gallery</button></li>
+                    <li><button>Memes</button></li>
+                    <li><button>About</button></li>
+                </ul>
+            </header>
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="600" width="600" style="border: 1px solid black;"></canvas>
+                <section class="generator-functions">
+
+                    <input class="txt" oninput="drawText(this.value)" placeholder="Insert text here " type="text">
+                    <div class="colors">
+                        Color<input style="display: inline;" oninput="gColor=this.value" type="color"> Stroke Color <input style="display: inline;" oninput="gStrokeColor=this.value" type="color">
+                    </div>
+                    <div class="buttons-container">
+
+                        <button onclick="addLine()">Add line</button>
+                        <button onclick="deleteLine()">Delete line</button>
+                        <button onclick="switchLines()">Switch Line</button>
+                        <button>Share</button>
+                        <button>Download</button>
+                        <button onclick="lineUp()">line up</button>
+                        <button onclick="fontSize(-3)">font size - </button>
+                        <button onclick="fontSize(3)">Font Size+</button>
+                        <button onclick="lineDown()">line down</button>
+                    </div>
+                </section>
+                <button class="x" onclick="closeModal()">X</button>
+            </div>
+            <footer class="main-footer"><img class="logo-img" src="img/logo.png" alt="">
+                <p> All rights</p>
+            </footer>
+    </div>
+
+
+
+    <script src="js/meme-storage-service.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/meme-controller.js"></script>
+</body>
+
+</html>
