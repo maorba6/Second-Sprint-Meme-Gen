@@ -21,8 +21,8 @@ function drawText(text, x, y) {
     var y = gMeme.lines[gLineIdx].y;
     text = text.toUpperCase()
     gCtx.lineWidth = '2';
-    gCtx.strokeStyle = gMeme.lines[gMeme.selectedLineIdx].strokeColor;
-    gCtx.fillStyle = gMeme.lines[gMeme.selectedLineIdx].color;
+    gCtx.strokeStyle = gStrokeColor;
+    gCtx.fillStyle = gColor;
     gCtx.font = `${gMeme.lines[gMeme.selectedLineIdx].size}px sans-serif`;
     gCtx.textAlign = gMeme.lines[gMeme.selectedLineIdx].align
 
