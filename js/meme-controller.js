@@ -27,10 +27,9 @@ function drawText(text, x, y) {
 }
 
 
-function renderPhotos() {
+function renderPhotos(imgs = gImgs) {
     var strHTML = '';
     var elCardsContainer = document.querySelector('.cards-container')
-    var imgs = getImgs();
     imgs.forEach(function(img) {
         strHTML += `<div><img class="meme-img" onclick="renderModal(${img.id})" src="${img.url}"></div>`
     })
@@ -56,7 +55,15 @@ function renderModal(id) {
     drawImgFromlocal(id)
 }
 
+function showNav() {
+    var elNav = document.querySelector('.lil-nav');
+    elNav.classList.remove('hidden');
+}
 
+function closeNav() {
+    var elNav = document.querySelector('.lil-nav');
+    elNav.classList.add('hidden');
+}
 
 function closeModal() {
     var elMain = document.querySelector('.main-container')
@@ -82,33 +89,39 @@ function drawImgFromlocal(id) {
 }
 
 
-
+function downloadImg(elLink) {
+    var imgContent = gCanvas.toDataURL('image/jpeg');
+    elLink.href = imgContent
+}
 
 function onAddLine() {
     addLine()
     elTxt.value = '';
+
 }
 
 function onDeleteLine() {
     deleteLine()
-    elTxt.value = '';
 
 }
 
 function onSwitchLines() {
     switchLines()
-    elTxt.value = '';
+    elTxt.value = gMeme.lines[gLineIdx].txt;
 
 }
 
 function onLineChange(val) {
     lineChange(val)
-    elTxt.value = '';
 
 }
 
 function onFontSize(val) {
     fontSize(val)
-    elTxt.value = '';
 
+}
+
+function onSearchKey(val) {
+
+    searchKey(val)
 }

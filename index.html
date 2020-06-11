@@ -10,10 +10,13 @@
 
 <body onload="init()">
 
-    <main class="main-container">
+    <main class="main-container" onclick="closeNav()">
 
         <header class="header">
             <img class="logo-img" src="img/logo.png" alt="">
+            <button onclick="showNav()" class="hamburger">☰</button>
+
+
 
             <ul class="main-nav">
                 <li><button>Gallery</button></li>
@@ -24,7 +27,7 @@
 
 
         <nav class="second-nav">
-            <input class="search-by-keyword" type="text" placeholder="Enter search keyword 🔍">
+            <input oninput="onSearchKey(this.value)" class="search-by-keyword" type="text" placeholder="Enter search keyword 🔍">
         </nav>
         <div class="container">
 
@@ -68,7 +71,7 @@
 
                     <input class="txt" oninput="drawText(this.value,gMeme.lines[gLineIdx].x,gMeme.lines[gLineIdx].y),gMeme.lines[gLineIdx].txt=this.value" placeholder="Insert text here " type="text">
                     <div class="colors">
-                        Color<input style="display: inline;" oninput="gMeme.lines[gLineIdx].color=this.value,gColor=this.value" type="color"> Stroke Color <input style="display: inline;" oninput="gMeme.lines[gLineIdx].storkeColor=this.value,gStrokeColor=this.value"
+                        Color<input style="display: inline;" oninput="gMeme.lines[gLineIdx].color=this.value,gColor=this.value ,drawText()" type="color"> Stroke Color <input style="display: inline;" oninput="gMeme.lines[gLineIdx].storkeColor=this.value,gStrokeColor=this.value  ,drawText()"
                             type="color">
                     </div>
                     <div class="buttons-container">
@@ -77,7 +80,7 @@
                         <button onclick="onDeleteLine()">Delete line</button>
                         <button onclick="onSwitchLines()">Switch Line</button>
                         <button>Share</button>
-                        <button>Download</button>
+                        <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg"><button>Download</button></a>
                         <button onclick="onLineChange(-50)">line up</button>
                         <button onclick="onFontSize(-3)">font size - </button>
                         <button onclick="onFontSize(3)">Font Size+</button>

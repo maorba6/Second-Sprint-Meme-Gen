@@ -71,3 +71,17 @@ function switchLines() {
     text()
 
 }
+
+function searchKey(val) {
+
+    var keywords = gImgs.filter(function(img) {
+
+        if (img.keywords.includes(val)) {
+            return img
+        }
+    }, )
+    renderPhotos(keywords)
+    if (val === '') {
+        renderPhotos()
+    }
+}
