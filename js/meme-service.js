@@ -13,54 +13,40 @@ function getImgs() {
     return gImgs;
 }
 
-function drawText(text, x, y) {
-    drawImgFromlocal(gId)
-    gText = text;
-    gMeme.lines[gLineIdx].txt = text
-    var x = gMeme.lines[gLineIdx].x;
-    var y = gMeme.lines[gLineIdx].y;
-    text = text.toUpperCase()
-    gCtx.lineWidth = '2';
-    gCtx.strokeStyle = gStrokeColor;
-    gCtx.fillStyle = gColor;
-    gCtx.font = `${gMeme.lines[gMeme.selectedLineIdx].size}px sans-serif`;
-    gCtx.textAlign = gMeme.lines[gMeme.selectedLineIdx].align
-
-    setTimeout(function() {
-        gCtx.fillText(text, x, y);
-        gCtx.strokeText(text, x, y);
-    }, 0.1)
-}
 
 var gMeme = {
     selectedLineIdx: gLineIdx,
     lines: [{ txt: gText, size: 40, align: 'center', color: gColor, strokeColor: gStrokeColor, x: 300, y: 70 }]
 }
 
-
+function text() {
+    gMeme.lines.forEach(function(line) {
+        gCtx.fillText(line.txt, line.x, line.y);
+        gCtx.strokeText(line.txt, line.x, line.y);
+    })
+}
 
 
 function addLine() {
     gMeme.lines.push({ txt: '', size: 40, align: 'center', color: gColor, strokeColor: gStrokeColor, x: 300, y: 300 })
     switchLines();
+    text()
 
 }
 
-function lineUp() {
-    gMeme.lines[gLineIdx].y -= 50;
+function lineChange(val) {
+    gMeme.lines[gLineIdx].y += val;
     drawText(gMeme.lines[gLineIdx].txt, gMeme.lines[gLineIdx].x, gMeme.lines[gLineIdx].y)
-}
-
-
-function lineDown() {;
-    gMeme.lines[gLineIdx].y += 50
-    drawText(gMeme.lines[gLineIdx].txt, gMeme.lines[gLineIdx].x, gMeme.lines[gLineIdx].y)
+    text()
 
 }
+
+
 
 function fontSize(val) {
     gMeme.lines[gLineIdx].size += val
     drawText(gMeme.lines[gLineIdx].txt, gMeme.lines[gLineIdx].x, gMeme.lines[gLineIdx].y)
+    text()
 
 }
 
@@ -72,6 +58,7 @@ function deleteLine() {
         gLineIdx = 0;
     }
     drawText('', 0, 0);
+    text()
 
 }
 
@@ -81,4 +68,6 @@ function switchLines() {
     } else {
         gLineIdx = 0;
     }
+    text()
+
 }

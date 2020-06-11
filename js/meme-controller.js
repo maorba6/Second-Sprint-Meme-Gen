@@ -3,14 +3,29 @@
 
 var gCanvas = document.querySelector('#my-canvas');
 var gCtx = gCanvas.getContext('2d');
+var elTxt = document.querySelector('.txt')
 
 
 
 
+function init() {
 
+    renderPhotos()
+}
 
+function drawText(text, x, y) {
+    drawImgFromlocal(gId)
+    gCtx.lineWidth = '2';
+    gCtx.strokeStyle = gStrokeColor;
+    gCtx.fillStyle = gColor;
+    gCtx.font = `${gMeme.lines[gLineIdx].size}px sans-serif`;
+    gCtx.textAlign = gMeme.lines[gLineIdx].align
 
-renderPhotos()
+    setTimeout(function() {
+        texts()
+    }, 0.1)
+}
+
 
 function renderPhotos() {
     var strHTML = '';
@@ -23,6 +38,14 @@ function renderPhotos() {
     elCardsContainer.innerHTML = strHTML
 
 }
+
+function texts() {
+    gMeme.lines.forEach(function(line) {
+        gCtx.fillText(line.txt, line.x, line.y);
+        gCtx.strokeText(line.txt, line.x, line.y);
+    })
+}
+
 
 
 function renderModal(id) {
@@ -62,7 +85,30 @@ function drawImgFromlocal(id) {
 
 
 function onAddLine() {
-
     addLine()
+    elTxt.value = '';
+}
+
+function onDeleteLine() {
+    deleteLine()
+    elTxt.value = '';
+
+}
+
+function onSwitchLines() {
+    switchLines()
+    elTxt.value = '';
+
+}
+
+function onLineChange(val) {
+    lineChange(val)
+    elTxt.value = '';
+
+}
+
+function onFontSize(val) {
+    fontSize(val)
+    elTxt.value = '';
 
 }

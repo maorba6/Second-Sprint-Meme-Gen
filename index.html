@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body>
+<body onload="init()">
 
     <main class="main-container">
 
@@ -66,21 +66,22 @@
                 <canvas id="my-canvas" height="600" width="600" style="border: 1px solid black;"></canvas>
                 <section class="generator-functions">
 
-                    <input class="txt" oninput="drawText(this.value)" placeholder="Insert text here " type="text">
+                    <input class="txt" oninput="drawText(this.value,gMeme.lines[gLineIdx].x,gMeme.lines[gLineIdx].y),gMeme.lines[gLineIdx].txt=this.value" placeholder="Insert text here " type="text">
                     <div class="colors">
-                        Color<input style="display: inline;" oninput="gColor=this.value" type="color"> Stroke Color <input style="display: inline;" oninput="gStrokeColor=this.value" type="color">
+                        Color<input style="display: inline;" oninput="gMeme.lines[gLineIdx].color=this.value,gColor=this.value" type="color"> Stroke Color <input style="display: inline;" oninput="gMeme.lines[gLineIdx].storkeColor=this.value,gStrokeColor=this.value"
+                            type="color">
                     </div>
                     <div class="buttons-container">
 
-                        <button onclick="addLine()">Add line</button>
-                        <button onclick="deleteLine()">Delete line</button>
-                        <button onclick="switchLines()">Switch Line</button>
+                        <button onclick="onAddLine()">Add line</button>
+                        <button onclick="onDeleteLine()">Delete line</button>
+                        <button onclick="onSwitchLines()">Switch Line</button>
                         <button>Share</button>
                         <button>Download</button>
-                        <button onclick="lineUp()">line up</button>
-                        <button onclick="fontSize(-3)">font size - </button>
-                        <button onclick="fontSize(3)">Font Size+</button>
-                        <button onclick="lineDown()">line down</button>
+                        <button onclick="onLineChange(-50)">line up</button>
+                        <button onclick="onFontSize(-3)">font size - </button>
+                        <button onclick="onFontSize(3)">Font Size+</button>
+                        <button onclick="onLineChange(50)">line down</button>
                     </div>
                 </section>
                 <button class="x" onclick="closeModal()">X</button>
