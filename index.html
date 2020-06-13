@@ -10,15 +10,15 @@
 
 <body onload="init()">
 
-    <main class="main-container" onclick="closeNav()">
 
+    <main class="main-container" onclick="closeNav()">
         <header class="header">
             <img class="logo-img" src="img/logo.png" alt="">
             <button onclick="showNav()" class="hamburger">☰</button>
 
 
 
-            <ul class="main-nav">
+            <ul class=" main-nav ">
                 <li><button>Gallery</button></li>
                 <li><button>Memes</button></li>
                 <li><button>About</button></li>
@@ -26,12 +26,12 @@
         </header>
 
 
-        <nav class="second-nav">
-            <input oninput="onSearchKey(this.value)" class="search-by-keyword" type="text" placeholder="Enter search keyword 🔍">
+        <nav class="second-nav ">
+            <input oninput="onSearchKey(this.value) " class="search-by-keyword " type="text " placeholder="Enter search keyword 🔍 ">
         </nav>
-        <div class="container">
+        <div class="container ">
 
-            <section class="cards-container">
+            <section class="cards-container ">
 
 
             </section>
@@ -39,66 +39,76 @@
 
 
 
-        <div class="me"><img src="img/me2.jpg" alt="">
+        <div class="me "><img src="img/me2.jpg " alt=" ">
             <p>this is me i like it</p>
 
 
     </main>
 
     </div>
+    <div class="lil-nav hidden">
+        <li><button>Gallery</button></li>
+        <li><button>Memes</button></li>
+        <li><button>About</button></li>
+    </div>
 
-    <footer class="main-footer"><img class="logo-img" src="img/logo.png" alt="">
+    <footer class="main-footer "><img class="logo-img " src="img/logo.png " alt=" ">
         <p> All rights</p>
     </footer>
 
-    <div class="modal hidden container">
+    <div class="modal hidden container" onclick="closeNav()">
+
+        <main class=" main-container ">
+
+            <header class="header ">
+                <img class="logo-img " src="img/logo.png " alt=" ">
+                <button onclick="showNav() " class="hamburger ">☰</button>
 
 
-        <main class="main-container">
 
-            <header class="header">
-                <img class="logo-img" src="img/logo.png" alt="">
 
-                <ul class="main-nav">
+                <ul class="main-nav ">
                     <li><button>Gallery</button></li>
                     <li><button>Memes</button></li>
                     <li><button>About</button></li>
                 </ul>
             </header>
-            <div class="canvas-container">
-                <canvas id="my-canvas" height="600" width="600" style="border: 1px solid black;"></canvas>
-                <section class="generator-functions">
 
-                    <input class="txt" oninput="drawText(this.value,gMeme.lines[gLineIdx].x,gMeme.lines[gLineIdx].y),gMeme.lines[gLineIdx].txt=this.value" placeholder="Insert text here " type="text">
-                    <div class="colors">
-                        Color<input style="display: inline;" oninput="gMeme.lines[gLineIdx].color=this.value,gColor=this.value ,drawText()" type="color"> Stroke Color <input style="display: inline;" oninput="gMeme.lines[gLineIdx].storkeColor=this.value,gStrokeColor=this.value  ,drawText()"
-                            type="color">
+            <div class="canvas-container ">
+                <canvas id="my-canvas" height="600 " width="600 " style="border: 1px solid black; "></canvas>
+
+                <section class="generator-functions ">
+
+                    <input class="txt " oninput="drawText(this.value,gMeme.lines[gLineIdx].x,gMeme.lines[gLineIdx].y),gMeme.lines[gLineIdx].txt=this.value " placeholder="Insert text here " type="text ">
+                    <div class="colors ">
+                        Color<input style="display: inline; " oninput="gMeme.lines[gLineIdx].color=this.value,gColor=this.value ,drawText() " type="color"> Stroke Color <input style="display: inline; " oninput="gMeme.lines[gLineIdx].storkeColor=this.value,gStrokeColor=this.value
+        ,drawText() " type="color">
                     </div>
-                    <div class="buttons-container">
+                    <div class="buttons-container ">
 
-                        <button onclick="onAddLine()">Add line</button>
-                        <button onclick="onDeleteLine()">Delete line</button>
-                        <button onclick="onSwitchLines()">Switch Line</button>
+                        <button onclick="onAddLine() ">Add line</button>
+                        <button onclick="onDeleteLine() ">Delete line</button>
+                        <button onclick="onSwitchLines() ">Switch Line</button>
                         <button>Share</button>
-                        <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg"><button>Download</button></a>
-                        <button onclick="onLineChange(-50)">line up</button>
-                        <button onclick="onFontSize(-3)">font size - </button>
-                        <button onclick="onFontSize(3)">Font Size+</button>
-                        <button onclick="onLineChange(50)">line down</button>
+                        <a href="# " class="btn " onclick="downloadImg(this) " download="my-img.jpg "><button>Download</button></a>
+                        <button onclick="onLineChange(-50) ">line up</button>
+                        <button onclick="onFontSize(-3) ">font size - </button>
+                        <button onclick="onFontSize(3) ">Font Size+</button>
+                        <button onclick="onLineChange(50) ">line down</button>
                     </div>
                 </section>
-                <button class="x" onclick="closeModal()">X</button>
+                <button class="x " onclick="closeModal() ">X</button>
             </div>
-            <footer class="main-footer"><img class="logo-img" src="img/logo.png" alt="">
+            <footer class="main-footer "><img class="logo-img " src="img/logo.png " alt=" ">
                 <p> All rights</p>
             </footer>
     </div>
 
 
 
-    <script src="js/meme-storage-service.js"></script>
-    <script src="js/meme-service.js"></script>
-    <script src="js/meme-controller.js"></script>
+    <script src="js/meme-storage-service.js "></script>
+    <script src="js/meme-service.js "></script>
+    <script src="js/meme-controller.js "></script>
 </body>
 
 </html>

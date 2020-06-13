@@ -1,4 +1,6 @@
 'use strict'
+const PAGE_SIZE = 6
+var gPageIdx = 0;
 
 
 var gKeywords = { 'happy': 12, 'funny puk': 1 }
@@ -84,4 +86,24 @@ function searchKey(val) {
     if (val === '') {
         renderPhotos()
     }
+}
+
+
+
+
+
+
+function getImgsForDisplay() {
+    var startIdx = gPageIdx * PAGE_SIZE;
+    return gImgs.slice(startIdx, startIdx + PAGE_SIZE)
+}
+
+function nextPage() {
+    if ((gPageIdx + 1) * PAGE_SIZE >= gImgs.length) gPageIdx = 0;
+    else gPageIdx++;
+}
+
+function prevPage() {
+    if (!gPageIdx) return
+    gPageIdx--;
 }

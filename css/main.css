@@ -214,14 +214,18 @@
        height: 200px;
        width: 100px;
        background-color: #ff7f00;
-       position: absolute;
-       right: 10px;
+       position: fixed;
+       right: 9px;
        top: 10px;
+       z-index: 1;
        list-style-type: none;
-       display: flex;
        flex-direction: column;
        justify-content: space-around;
        padding: 0;
+   }
+   
+   .flex {
+       display: flex;
    }
    
    .lil-nav li button {

@@ -57,11 +57,15 @@ function renderModal(id) {
 
 function showNav() {
     var elNav = document.querySelector('.lil-nav');
+    event.stopPropagation();
     elNav.classList.remove('hidden');
+    elNav.classList.add('flex');
 }
 
 function closeNav() {
     var elNav = document.querySelector('.lil-nav');
+    event.stopPropagation();
+    elNav.classList.remove('flex');
     elNav.classList.add('hidden');
 }
 
